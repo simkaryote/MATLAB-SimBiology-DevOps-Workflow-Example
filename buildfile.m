@@ -38,7 +38,7 @@ plan("compile").Inputs = fullfile(proj.RootFolder,"code",["*.mat","*.mlapp","gra
 plan("compile").Outputs = fullfile(proj.RootFolder,"WebAppArchive");
 
 % Set default task
-plan.DefaultTasks = "test";
+plan.DefaultTasks = "compile";
 
 
 end
