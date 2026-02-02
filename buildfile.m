@@ -7,6 +7,7 @@ plan = buildplan(localfunctions);
 % CodeIssues task
 plan("check") = CodeIssuesTask(Results=["results/codeissues.sarif"; ...
                                         "results/codeissues.mat"]);
+disp('do a test')
 %% THIS IS A TEST
 % Test task
 tTask = TestTask("tests", ...
