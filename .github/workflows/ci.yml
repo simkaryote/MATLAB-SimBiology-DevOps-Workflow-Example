@@ -35,6 +35,10 @@ jobs:
     if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
     steps:
+      # Check out your repository
+      - uses: actions/checkout@v5
+
+
       # Set up MATLAB on a GitHub-hosted runner
       - name: Setup MATLAB
         uses: matlab-actions/setup-matlab@v2
