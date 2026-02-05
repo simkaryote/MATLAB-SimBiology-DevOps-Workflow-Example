@@ -39,6 +39,13 @@ classdef SimulationModel < handle
     methods
         
         function obj = SimulationModel()
+            
+            % check whether there is a MAT file
+            proj = currentProject;
+            if ~exist(fullfile(proj.RootFolder,"code","simFunction_Dose.mat"),"file")
+                generateSimFun();
+            end
+
             % load Simfunction and dosing information
             load('simFunction_Dose.mat', 'simFun', 'doseTable');
             obj.SimFun    = simFun;

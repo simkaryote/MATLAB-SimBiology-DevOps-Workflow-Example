@@ -20,17 +20,17 @@ In this workshop, you will:
 ## Table of Contents
 &emsp;[Workshop Requirements](#H_34C2FB57)
  
-&emsp;[Part 1:  Getting the workshop files and configuring GitHub for automated testing and results publishing](#TMP_8778)
+&emsp;[Part 1:  Getting the workshop files and configuring GitHub for automated testing and results publishing](#TMP_82f7)
  
-&emsp;[Part 2:  Generating your first tests](#TMP_6716)
+&emsp;[Part 2:  Generating your first tests](#TMP_5fa2)
  
-&emsp;[Part 3:  Finding existing tests and measuring coverage](#TMP_9df8)
+&emsp;[Part 3:  Finding existing tests and measuring coverage](#TMP_85d6)
  
-&emsp;[Part 4:  Updating badges, committing our changes, and pushing to GitHub](#TMP_27c8)
+&emsp;[Part 4:  Updating badges, committing our changes, and pushing to GitHub](#TMP_98fc)
  
-&emsp;[Part 5:  Create a pull request, watch GitHub Actions automatically test your changes and publish results](#TMP_4e61)
+&emsp;[Part 5:  Create a pull request, watch GitHub Actions automatically test your changes and publish results](#TMP_8221)
  
-&emsp;[Workshop wrap\-up and additional information](#TMP_4187)
+&emsp;[Workshop wrap\-up and additional information](#TMP_5731)
  
 <!-- End Toc -->
 <a id="H_34C2FB57"></a>
@@ -55,7 +55,7 @@ The following steps cover all of the things you will need to successfully comple
 -  The workshop leverages the free repository and CI capabilities offered by GitHub and GitHub Actions 
 -  Go to:  [**https://github.com/signup**](https://github.com/signup) 
 
-<a id="TMP_8778"></a>
+<a id="TMP_82f7"></a>
 
 # Part 1:  Getting the workshop files and configuring GitHub for automated testing and results publishing
 
@@ -64,10 +64,7 @@ In this section, you will:
 1.  Fork the workshop files to your personal GitHub account
 2. Enable GitHub Actions for automated testing
 3. Enable GitHub Pages for report publishing
-4. Open the workshop in MATLAB Online
-
-
-*Note:*  You can also clone your forked copy of the repository to your desktop and use a desktop MATLAB
+4. Open the workshop in MATLAB
 
 <a id="TMP_35a2"></a>
 
@@ -84,6 +81,12 @@ Forking a repository allows you to freely experiment with and push changes to a 
 
 
 GitHub provides some great information about "why" and "how" to fork a repository here: [https://docs.github.com/en/enterprise\-cloud@latest/pull\-requests/collaborating\-with\-pull\-requests/working\-with\-forks/fork\-a\-repo](https://docs.github.com/en/enterprise-cloud@latest/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
+
+
+**However**, In our case, we will use forking as a way for everyone to have his/her own remote repository as everyone would be pushing the same changes to one single repo otherwise.
+
+
+Since the forked repo is not meant to be pushed back to the original repository, we will make it standalone.
 
 
 Let's get started!
@@ -121,14 +124,24 @@ GitHub offers the ability to rename your copy of the repository, but this guide 
 **Once you've forked the repository, you should see:**
 
 -  your GitHub username at the top of your repository 
--  "forked from mathworks/Generating\-Tests\-for\-Your\-MATLAB\-Code\-Workshop" 
+-  "forked from simkaryote/MATLAB\-SimBiology\-DevOps\-Workflow\-Example" 
 
 ![image_3.png](WorkshopGuide_media/image_3.png)
 
 
+**Let's make it now standalone for the sake of the workshop.** 
 
-Before you go to MATLAB Online, let's enable some useful GitHub features that will be automatically triggered when we push our changes to GitHub later.
 
+![image_4.png](WorkshopGuide_media/image_4.png)
+
+
+![image_5.png](WorkshopGuide_media/image_5.png)
+
+
+Now your repository is standalone and not linked to the original repository. 
+
+
+Before you go to MATLAB, let's enable some useful GitHub features that will be automatically triggered when we push our changes to GitHub later.
 
 <a id="TMP_8dc4"></a>
 
@@ -141,14 +154,13 @@ GitHub offers built\-in continuous integration (CI) services via their "GitHub A
 **Select the "Actions" tab**
 
 
-![image_4.png](WorkshopGuide_media/image_4.png)
-
+![image_6.png](WorkshopGuide_media/image_6.png)
 
 
 **Click the "I understand my workflows, go ahead and enable them" button**
 
 
-![image_5.png](WorkshopGuide_media/image_5.png)
+![image_7.png](WorkshopGuide_media/image_7.png)
 
 
 And that's it! GitHub Actions is now enabled for your repository.
@@ -164,20 +176,19 @@ GitHub offers a built\-in way to publish test reports and artifacts created from
 **Select the "Settings" tab**
 
 
-![image_6.png](WorkshopGuide_media/image_6.png)
-
+![image_8.png](WorkshopGuide_media/image_8.png)
 
 
 **Select the "Pages" entry on the left\-side navigation panel**
 
 
-![image_7.png](WorkshopGuide_media/image_7.png)
+![image_9.png](WorkshopGuide_media/image_9.png)
 
 
 **Change the "Build and deployment > Source" dropdown and select "GitHub Actions"**
 
 
-![image_8.png](WorkshopGuide_media/image_8.png)
+![image_10.png](WorkshopGuide_media/image_10.png)
 
 
 GitHub Pages is now enabled and your GitHub Actions will be allowed to publish test results for everyone to see.
@@ -206,14 +217,14 @@ Let's get started!
 **Get the workshop files selecting Home > New > Git Clone**
 
 
-![image_9.png](WorkshopGuide_media/image_9.png)
+![image_11.png](WorkshopGuide_media/image_11.png)
 
 <a id="H_DB2C80D4"></a>
 
 **Enter the URL of your GitHub repository in the dialog and hit "Clone"**
 
 
-![image_10.png](WorkshopGuide_media/image_10.png)
+![image_12.png](WorkshopGuide_media/image_12.png)
 
 
  
@@ -228,7 +239,7 @@ A MATLAB project is a useful tool that makes it easy to:
 -  run startup and shutdown scripts when you open or close the project 
 -  keep one project from affecting the environment of another project 
 
-![image_11.png](WorkshopGuide_media/image_11.png)
+![image_13.png](WorkshopGuide_media/image_13.png)
 
 
 **Give MATLAB permission to run project startup tasks**
@@ -243,13 +254,13 @@ For this workshop, the code we are executing during project startup is to automa
 In the following dialog, please select "Open" to open the project and run this startup task.
 
 
-![image_12.png](WorkshopGuide_media/image_12.png)
+![image_14.png](WorkshopGuide_media/image_14.png)
 
 
 Your MATLAB now should look something like this:
 
 
-![image_13.png](WorkshopGuide_media/image_13.png)
+![image_15.png](WorkshopGuide_media/image_15.png)
 
 
 *Notes:* 
@@ -266,24 +277,24 @@ After cloning the repo, you will be seeing the default main branch.
 It is good practice to create a new branch and switch to it to make new development, push it to your remote repo and merge your branch with the main branch (more on this later...).
 
 
-Let's open the branch manager:
-
-
-![image_14.png](WorkshopGuide_media/image_14.png)
-
-
-And create a new `dev` branch and switch to it:
-
-
-![image_15.png](WorkshopGuide_media/image_15.png)
+Let's open the branch manager from the "Project" tab:
 
 
 ![image_16.png](WorkshopGuide_media/image_16.png)
 
 
+And create a new `dev` branch and switch to it:
+
+
+![image_17.png](WorkshopGuide_media/image_17.png)
+
+
+![image_18.png](WorkshopGuide_media/image_18.png)
+
+
 Now you're ready to work on your project and, for example, start generating tests!
 
-<a id="TMP_6716"></a>
+<a id="TMP_5fa2"></a>
 
 # Part 2:  Generating your first tests
 
@@ -318,7 +329,7 @@ Here's an example code you can run at the Command Window:
 >> all(ismember(sObj.SimData.DataNames,["Drug","Receptor","Complex","RO"]))
 ```
 
-![image_17.png](WorkshopGuide_media/image_17.png)
+![image_19.png](WorkshopGuide_media/image_19.png)
 
 
 **Generate your first test for the** [**`SimulationModel`**](./code/SimulationModel.m) class **using our command history**
@@ -333,16 +344,16 @@ As of MATLAB R2025a, MATLAB Test introduced a feature to generate a test from yo
 **Go to the Command History panel**
 
 
-![image_18.png](WorkshopGuide_media/image_18.png)
+![image_20.png](WorkshopGuide_media/image_20.png)
 
 
 *Note:*  If you don't see the Command History panel icon, you can add the icon by selecting the "`...`" option and selecting the "Command History" item.
 
 
-![image_19.png](WorkshopGuide_media/image_19.png)
+![image_21.png](WorkshopGuide_media/image_21.png)
 
 
-![image_20.png](WorkshopGuide_media/image_20.png)
+![image_22.png](WorkshopGuide_media/image_22.png)
 
 
 *Note:*  You can also access your command history by pressing the "up" key while at the MATLAB Command Window.
@@ -351,32 +362,32 @@ As of MATLAB R2025a, MATLAB Test introduced a feature to generate a test from yo
 **Right\-Click one of your calls** **and select "Generate Test"**
 
 
-![image_21.png](WorkshopGuide_media/image_21.png)
+![image_23.png](WorkshopGuide_media/image_23.png)
 
 
 
 This will automatically gather all relevant code lines needed to execute that command successfully and generate a test template for you:
 
 
-![image_22.png](WorkshopGuide_media/image_22.png)
+![image_24.png](WorkshopGuide_media/image_24.png)
 
 
 **Check that both assertions are true and rename the class and the test**
 
 
-![image_23.png](WorkshopGuide_media/image_23.png)
+![image_25.png](WorkshopGuide_media/image_25.png)
 
 
 **Save your test to the** **`tests`** **folder**
 
 
-![image_24.png](WorkshopGuide_media/image_24.png)
+![image_26.png](WorkshopGuide_media/image_26.png)
 
 
 **Run your test using the "Run Tests" button in the Editor toolstrip**
 
 
-![image_25.png](WorkshopGuide_media/image_25.png)
+![image_27.png](WorkshopGuide_media/image_27.png)
 
 
 As of MATLAB R2023a, running tests from the Editor toolstrip will automatically open the MATLAB Test Browser.
@@ -390,7 +401,7 @@ The MATLAB Test Browser makes it easy to:
 -  enable code coverage 
 -  enable parallel test execution 
 
-![image_26.png](WorkshopGuide_media/image_26.png)
+![image_28.png](WorkshopGuide_media/image_28.png)
 
 
 After your tests are done running, you will be able to to quickly see that your tests have passed. Yay!
@@ -421,14 +432,14 @@ edit SimulationModel.m
 **In the Editor toolstrip, expand the "Generate Test" drop down menu and select "Generate test for the current file using MATLAB Copilot"**
 
 
-![image_27.png](WorkshopGuide_media/image_27.png)
+![image_29.png](WorkshopGuide_media/image_29.png)
 
 
 
 MATLAB Copilot will generate multiple ready\-to\-run tests.
 
 
-![image_28.png](WorkshopGuide_media/image_28.png)
+![image_30.png](WorkshopGuide_media/image_30.png)
 
 
 *Note:*  As with all LLM\-based technologies, remember to validate the output before using it in production systems.
@@ -441,24 +452,24 @@ MATLAB Copilot will generate multiple ready\-to\-run tests.
 Just like before, save your new tests to the `tests` folder and run your tests.
 
 
-![image_29.png](WorkshopGuide_media/image_29.png)
+![image_31.png](WorkshopGuide_media/image_31.png)
 
 
  **Look at your test results in the MATLAB Test Browser**
 
 -  *Note:*  Depending on the tests MATLAB Copilot generates, you may or may not end up with some failing tests. 
 
-![image_30.png](WorkshopGuide_media/image_30.png)
+![image_32.png](WorkshopGuide_media/image_32.png)
 
 
 
 The test done on lines 29 & 30 in `testSimulateFunction` does not seem right. Let's delete those lines and rerun the test.
 
 
-![image_31.png](WorkshopGuide_media/image_31.png)
+![image_33.png](WorkshopGuide_media/image_33.png)
 
 
-![image_32.png](WorkshopGuide_media/image_32.png)
+![image_34.png](WorkshopGuide_media/image_34.png)
 
 
 <a id="TMP_22e2"></a>
@@ -484,19 +495,19 @@ Go back to the Project side panel.
 You can identify files not in your project when the Status column is not a check mark or the Git column is an empty circle.
 
 
-![image_33.png](WorkshopGuide_media/image_33.png)
+![image_35.png](WorkshopGuide_media/image_35.png)
 
 
 **Right\-click the test files and select "Add to Project"**
 
 
-![image_34.png](WorkshopGuide_media/image_34.png)
+![image_36.png](WorkshopGuide_media/image_36.png)
 
 
 **Confirm your test files have been added to the project by seeing the check mark in the Status column and the "+" icon in the Git column**
 
 
-![image_35.png](WorkshopGuide_media/image_35.png)
+![image_37.png](WorkshopGuide_media/image_37.png)
 
 
 Congratulations! You just created multiple tests for your MATLAB code!
@@ -505,7 +516,7 @@ Congratulations! You just created multiple tests for your MATLAB code!
 It was easier than you thought, right?
 
 
-<a id="TMP_9df8"></a>
+<a id="TMP_85d6"></a>
 
 # Part 3:  Finding existing tests and measuring coverage
 
@@ -545,7 +556,7 @@ edit generateSimFun.m
 **Press the "Find Tests" button in the Editor toolstrip**
 
 
-![image_36.png](WorkshopGuide_media/image_36.png)
+![image_38.png](WorkshopGuide_media/image_38.png)
 
 
 **Select the root of your project to identify all tests in your project** 
@@ -555,25 +566,25 @@ edit generateSimFun.m
 MATLAB automatically will perform a dependency analysis on `generateSimFun`.
 
 
-![image_37.png](WorkshopGuide_media/image_37.png)
+![image_39.png](WorkshopGuide_media/image_39.png)
 
 
 After the dependency analysis, you will see 5 tests that are related to `generateSimFun` open in the MATLAB Test Browser.
 
 
-![image_38.png](WorkshopGuide_media/image_38.png)
+![image_40.png](WorkshopGuide_media/image_40.png)
 
 
 **Run the tests in the MATLAB Test Browser using the MATLAB Test Browser's "Run" button**
 
 
-![image_39.png](WorkshopGuide_media/image_39.png)
+![image_41.png](WorkshopGuide_media/image_41.png)
 
 
 It looks like all the tests passed! Yay!
 
 
-![image_40.png](WorkshopGuide_media/image_40.png)
+![image_42.png](WorkshopGuide_media/image_42.png)
 
 
 <a id="TMP_7b6c"></a>
@@ -603,20 +614,20 @@ The MATLAB Unit Test Framework can automatically measure code coverage, but it i
 **Open code coverage settings**
 
 
-![image_41.png](WorkshopGuide_media/image_41.png)
+![image_43.png](WorkshopGuide_media/image_43.png)
 
 
 **Enable coverage reporting**
 
 
-![image_42.png](WorkshopGuide_media/image_42.png)
+![image_44.png](WorkshopGuide_media/image_44.png)
 
 
 
 **Select the "Condition" coverage metric**
 
 
-![image_43.png](WorkshopGuide_media/image_43.png)
+![image_45.png](WorkshopGuide_media/image_45.png)
 
 
 *Note:*  For this workshop, we will skip MC/DC since it is a significantly more advanced topic and primarily used in certification workflows.
@@ -629,7 +640,7 @@ The MATLAB Unit Test Framework can automatically measure code coverage, but it i
 By selecting specific files or folders, we can focus our code coverage measurements on only the files and folders you select and avoid complicating our code coverage reports with code that is less critical for our application.
 
 
-![image_44.png](WorkshopGuide_media/image_44.png)
+![image_46.png](WorkshopGuide_media/image_46.png)
 
 
 
@@ -639,31 +650,31 @@ By selecting specific files or folders, we can focus our code coverage measureme
 While this option can conveniently open the coverage report after every test run, it can sometimes be distracting when you are rerunning tests frequently.
 
 
-![image_45.png](WorkshopGuide_media/image_45.png)
+![image_47.png](WorkshopGuide_media/image_47.png)
 
 
 **Close the Coverage Settings**
 
 
-![image_46.png](WorkshopGuide_media/image_46.png)
+![image_48.png](WorkshopGuide_media/image_48.png)
 
 
 **Rerun your tests**
 
 
-![image_47.png](WorkshopGuide_media/image_47.png)
+![image_49.png](WorkshopGuide_media/image_49.png)
 
 
 **Click the link in the Command Window to open the code coverage report**
 
 
-![image_48.png](WorkshopGuide_media/image_48.png)
+![image_50.png](WorkshopGuide_media/image_50.png)
 
 
 You should see a Code Coverage Report very similar to the one below.
 
 
-![image_49.png](WorkshopGuide_media/image_49.png)
+![image_51.png](WorkshopGuide_media/image_51.png)
 
 
 The top of the report gives you an overall summary of the coverage metrics for all of the code in the folders you have chosen, while the "Breakdown by Source" table gives you a breakdown of the coverage metrics by file.
@@ -683,14 +694,14 @@ Let's look at the detailed coverage metrics for the [`generateSimFun`](./code/ge
 **Select the** [`generateSimFun.m`](./code/generateSimFun.m) **row in the "Breakdown by Source" table**
 
 
-![image_50.png](WorkshopGuide_media/image_50.png)
+![image_52.png](WorkshopGuide_media/image_52.png)
 
 
 
 **Scroll down to see the detailed source code and coverage metrics**
 
 
-![image_51.png](WorkshopGuide_media/image_51.png)
+![image_53.png](WorkshopGuide_media/image_53.png)
 
 
 Well, that seems like a rather boring detailed report, right?
@@ -708,7 +719,7 @@ However, you can see that the Statement and Decision columns have data in them, 
 Now the coverage report looks much more interesting!
 
 
-![image_52.png](WorkshopGuide_media/image_52.png)
+![image_54.png](WorkshopGuide_media/image_54.png)
 
 
 There are several kinds of highlights you can see in the source code:
@@ -729,7 +740,7 @@ We can also take a look at the "Statement" coverage metrics to see which stateme
 **Select "Statement" coverage in the "Currently viewing" overlay at the top of the page**
 
 
-![image_53.png](WorkshopGuide_media/image_53.png)
+![image_55.png](WorkshopGuide_media/image_55.png)
 
 
 From the highlights, we can see that line 4 of our code has never been exercised by our tests.
@@ -754,14 +765,14 @@ Wait... Where is the test file for [`generateSimFun`](./code/generateSimFun.m) ?
 Luckily, the MATLAB Test Browser makes it easy to open the test files related to each test by simply clicking on the test file name. In this case, all of the test points are located in the [`tgenerateSimFun.m`](./tests/tgenerateSimFun.m) file.
 
 
-![image_54.png](WorkshopGuide_media/image_54.png)
+![image_56.png](WorkshopGuide_media/image_56.png)
 
 
 
 This is what the test file looks like:
 
 
-![image_55.png](WorkshopGuide_media/image_55.png)
+![image_57.png](WorkshopGuide_media/image_57.png)
 
 
 Hm... This seems a bit different than the tests we saw before. The MATLAB Test Browser showed 5 tests, but this test file looks like it only has 3 tests in it.
@@ -790,13 +801,13 @@ Parameterized tests are extremely useful when:
 The way a parameterized test works is by defining a test parameter (or multiple test parameters) that contain the inputs you want to pass into your code, and passing that test parameter to your test function.
 
 
-![image_56.png](WorkshopGuide_media/image_56.png)
+![image_58.png](WorkshopGuide_media/image_58.png)
 
 
 Looking at the second test function, you can see it takes this test parameter as an additional input. This test parameter will have a different value every time the function is called.
 
 
-![image_57.png](WorkshopGuide_media/image_57.png)
+![image_59.png](WorkshopGuide_media/image_59.png)
 
 
 *Note:* You can learn more about parameterized testing here:  [https://www.mathworks.com/help/matlab/matlab\_prog/use\-parameters\-in\-class\-based\-tests.html](https://www.mathworks.com/help/matlab/matlab_prog/use-parameters-in-class-based-tests.html)
@@ -805,10 +816,10 @@ Looking at the second test function, you can see it takes this test parameter as
 Similarly, parameters can be used in other methods such as `classSetup`, which is a method that is called once before running all tests.
 
 
-![image_58.png](WorkshopGuide_media/image_58.png)
+![image_60.png](WorkshopGuide_media/image_60.png)
 
 
-![image_59.png](WorkshopGuide_media/image_59.png)
+![image_61.png](WorkshopGuide_media/image_61.png)
 
 
 **Add another test point**
@@ -835,16 +846,16 @@ MATfilename = {"test_generateSimFun.mat", string.empty}
 *Note:*  You must use the "Run Tests" button in the Editor toolstrip to to pick up the new test point we added. The "Run" button in the MATLAB Test Browser will only run the tests that are loaded in the panel. It will not automatically pick up new tests in the files.
 
 
-![image_60.png](WorkshopGuide_media/image_60.png)
+![image_62.png](WorkshopGuide_media/image_62.png)
 
 
 It looks like we've achieved full statement coverage for [`generateSimFun`](./code/generateSimFun.m). Yay!
 
 
-![image_61.png](WorkshopGuide_media/image_61.png)
+![image_63.png](WorkshopGuide_media/image_63.png)
 
 
-<a id="TMP_27c8"></a>
+<a id="TMP_98fc"></a>
 
 # Part 4:  Updating badges, committing our changes, and pushing to GitHub
 
@@ -860,7 +871,7 @@ In this section, you will:
 **Part 4.1:  Update repository badges**
 
 
-![image_62.png](WorkshopGuide_media/image_62.png)
+![image_64.png](WorkshopGuide_media/image_64.png)
 
 
 Repository badges are great ways to showcase and allow exploration of the quality of your code. Badges are defined in a repository's [`README.md`](./README.md).
@@ -875,7 +886,7 @@ To make this easy, the workshop provides a useful project shortcut that will aut
 **Update the badges by single\-clicking the "Update README Link" item in the "Shortcuts" section of the Project toolstrip**
 
 
-![image_63.png](WorkshopGuide_media/image_63.png)
+![image_65.png](WorkshopGuide_media/image_65.png)
 
 
 *Note*: If you want to manually update the links, you will need to make the following changes to all of the links in the [`README.md`](./README.md) file:
@@ -898,13 +909,13 @@ Now that you've fixed a bug, added tests and test points, and updated your badge
 **In the "Project" toolstrip, press "Commit"**
 
 
-![image_64.png](WorkshopGuide_media/image_64.png)
+![image_66.png](WorkshopGuide_media/image_66.png)
 
 
 **Type in a useful commit message and press "Commit"**
 
 
-![image_65.png](WorkshopGuide_media/image_65.png)
+![image_67.png](WorkshopGuide_media/image_67.png)
 
 
 
@@ -919,7 +930,7 @@ Usually, the next step is to push our changes back to GitHub. This is really eas
 **Part 4.3:  Generating a GitHub Personal Access token to enable MATLAB Online to push our changes to our GitHub repository**
 
 
- ![image_66.png](WorkshopGuide_media/image_66.png)
+ ![image_68.png](WorkshopGuide_media/image_68.png)
 
 
 Over the last few years, GitHub has increased its focus on security. One of the major user\-facing ways GitHub is enforcing some of these better security practices is by [moving away from the use of passwords](https://github.blog/2020-07-30-token-authentication-requirements-for-api-and-git-operations/), and recommending that people use personal access tokens instead.
@@ -944,26 +955,26 @@ For this MATLAB Online session, you will need to manually create a personal acce
 **On GitHub, press your profile picture (top right of the page) and select "Settings"**
 
 
- ![image_67.png](WorkshopGuide_media/image_67.png)
+ ![image_69.png](WorkshopGuide_media/image_69.png)
 
 
 **Select "Developer settings" at the bottom of the left\-hand navigation menu**
 
 
- ![image_68.png](WorkshopGuide_media/image_68.png)
+ ![image_70.png](WorkshopGuide_media/image_70.png)
 
 
 **Select "Personal access tokens > Fine\-grained tokens"**
 
 
- ![image_69.png](WorkshopGuide_media/image_69.png)
+ ![image_71.png](WorkshopGuide_media/image_71.png)
 
 <a id="H_B96DECF2"></a>
 
 **Press "Generate new token"**
 
 
-![image_70.png](WorkshopGuide_media/image_70.png)
+![image_72.png](WorkshopGuide_media/image_72.png)
 
 
 ***Note:***  You may need to log into GitHub again to complete this action.
@@ -974,28 +985,28 @@ For this MATLAB Online session, you will need to manually create a personal acce
 **Name your token**
 
 
-![image_71.svg](WorkshopGuide_media/image_71.svg)
+![image_73.svg](WorkshopGuide_media/image_73.svg)
 
 
 
 **Limit token access to only the workshop repo**
 
 
-![image_72.svg](WorkshopGuide_media/image_72.svg)
+![image_74.svg](WorkshopGuide_media/image_74.svg)
 
 
 
 **Select "Add Permissions > Contents" to enable pushing changes to your repository**
 
 
-![image_73.png](WorkshopGuide_media/image_73.png)
+![image_75.png](WorkshopGuide_media/image_75.png)
 
 
 
 **Change "Contents" access permissions to "Read and write"**
 
 
-![image_74.png](WorkshopGuide_media/image_74.png)
+![image_76.png](WorkshopGuide_media/image_76.png)
 
 
 <a id="H_2C284494"></a>
@@ -1003,14 +1014,14 @@ For this MATLAB Online session, you will need to manually create a personal acce
 **Press "Generate token"**
 
 
-![image_75.png](WorkshopGuide_media/image_75.png)
+![image_77.png](WorkshopGuide_media/image_77.png)
 
 
 
 **Confirm the creation of the token**
 
 
-![image_76.png](WorkshopGuide_media/image_76.png)
+![image_78.png](WorkshopGuide_media/image_78.png)
 
 
 **Copy your personal access token to your clipboard**
@@ -1025,7 +1036,7 @@ For this MATLAB Online session, you will need to manually create a personal acce
 Any service that generates access token strings will only allow you to see or copy the token string the moment the token is created. As soon as you refresh the page or navigate away, the token string will be hidden forever. This protects you from having your token stolen or copied if someone breaks into your account.
 
 
-![image_77.svg](WorkshopGuide_media/image_77.svg)
+![image_79.svg](WorkshopGuide_media/image_79.svg)
 
 
 Your personal access token should start with "`github_pat_`" followed by many alphanumeric characters.
@@ -1042,24 +1053,24 @@ Now let's push your changes to GitHub!
 **In the Projects tab, press the "Push" button**
 
 
-![image_78.png](WorkshopGuide_media/image_78.png)
+![image_80.png](WorkshopGuide_media/image_80.png)
 
 <a id="H_D0E7BA3D"></a>
 
 **Enter your username and paste your personal access token into the MATLAB Online Git dialog and press "OK"**
 
 
-![image_79.svg](WorkshopGuide_media/image_79.svg)
+![image_81.svg](WorkshopGuide_media/image_81.svg)
 
 
 
 At this point, all of your changes will be pushed to GitHub.
 
 
-![image_80.png](WorkshopGuide_media/image_80.png)
+![image_82.png](WorkshopGuide_media/image_82.png)
 
 
-<a id="TMP_4e61"></a>
+<a id="TMP_8221"></a>
 
 # Part 5:  Create a pull request, watch GitHub Actions automatically test your changes and publish results
 
@@ -1075,13 +1086,13 @@ In this section, you will:
 After pushing your new branch to the remote repo, it will automatically suggest to create a pull request:
 
 
- ![image_81.png](WorkshopGuide_media/image_81.png)
+ ![image_83.png](WorkshopGuide_media/image_83.png)
 
 
 You can follow this suggestion and click on the 'compare & pull request" button:
 
 
-![image_82.png](WorkshopGuide_media/image_82.png)
+![image_84.png](WorkshopGuide_media/image_84.png)
 
 
 You can now add a description and press "Create pull request".
@@ -1090,16 +1101,16 @@ You can now add a description and press "Create pull request".
 If no conflict is detected, it should suggest to perform merging:
 
 
-![image_83.png](WorkshopGuide_media/image_83.png)
+![image_85.png](WorkshopGuide_media/image_85.png)
 
 
-![image_84.png](WorkshopGuide_media/image_84.png)
+![image_86.png](WorkshopGuide_media/image_86.png)
 
 
 You can then safely delete the dev branch:
 
 
-![image_85.png](WorkshopGuide_media/image_85.png)
+![image_87.png](WorkshopGuide_media/image_87.png)
 
 <a id="TMP_2df5"></a>
 
@@ -1123,13 +1134,13 @@ To make this possible, the workshop provides you a pre\-written [GitHub Actions 
 **Select the "Actions" tab to see your build in action**
 
 
-![image_86.png](WorkshopGuide_media/image_86.png)
+![image_88.png](WorkshopGuide_media/image_88.png)
 
 
 Here you'll see all the builds that are running or have been run in the past.
 
 
-![image_87.png](WorkshopGuide_media/image_87.png)
+![image_89.png](WorkshopGuide_media/image_89.png)
 
 
 <a id="H_FBE3C756"></a>
@@ -1137,28 +1148,28 @@ Here you'll see all the builds that are running or have been run in the past.
 **Dive deeper by selecting the listed workflow item and Select the "build" box**
 
 
-![image_88.png](WorkshopGuide_media/image_88.png)
+![image_90.png](WorkshopGuide_media/image_90.png)
 
 
 
 **Observe the GitHub Actions log as your build is running**
 
 
-![image_89.png](WorkshopGuide_media/image_89.png)
+![image_91.png](WorkshopGuide_media/image_91.png)
 
 
 
 The icon next to the build reflects the result of the build. A green check mark means the build ran successfully.
 
 
-![image_90.png](WorkshopGuide_media/image_90.png)
+![image_92.png](WorkshopGuide_media/image_92.png)
 
 
 
 Another place you can see an indication of your passing build is on your repository home page.
 
 
-![image_91.png](WorkshopGuide_media/image_91.png)
+![image_93.png](WorkshopGuide_media/image_93.png)
 
 
 *Note:*  You may need to refresh your browser a few times or use "Shift+F5" for the status to update
@@ -1191,13 +1202,13 @@ The badges on your repository's home page offer an easy way to:
 **View your test report by selecting the "Open Test Report" badge**
 
 
-![image_92.png](WorkshopGuide_media/image_92.png)
+![image_94.png](WorkshopGuide_media/image_94.png)
 
 
 The test report looks like this:
 
 
-![image_93.png](WorkshopGuide_media/image_93.png)
+![image_95.png](WorkshopGuide_media/image_95.png)
 
 
 <a id="H_C2E2595D"></a>
@@ -1205,20 +1216,20 @@ The test report looks like this:
 **View your code coverage report by selecting the "Open Code Coverage Report" badge**
 
 
-![image_94.png](WorkshopGuide_media/image_94.png)
+![image_96.png](WorkshopGuide_media/image_96.png)
 
 
 The code coverage report looks like this:
 
 
-![image_95.png](WorkshopGuide_media/image_95.png)
+![image_97.png](WorkshopGuide_media/image_97.png)
 
 
 
 Now anyone that visits your repository can immediately see the quality of your code, explore your test and code coverage results, and will have more confidence in the code you are writing!
 
 
-<a id="TMP_4187"></a>
+<a id="TMP_5731"></a>
 
 # Workshop wrap\-up and additional information
 

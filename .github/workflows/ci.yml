@@ -6,6 +6,9 @@ on:
   # Triggers the workflow on push events, but only for the main branch
   push:
     branches: [ main ]
+  
+  pull_request:
+    branches:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -27,7 +30,29 @@ concurrency:
 
 jobs:
 
+  test:
+    name: PR checks
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    steps:
+      # Set up MATLAB on a GitHub-hosted runner
+      - name: Setup MATLAB
+        uses: matlab-actions/setup-matlab@v2
+        with:
+          products: ${{ env.PRODUCT_LIST }}
+          cache: true
+
+      # Run the MATLAB build tool to build and test your code
+      - name: Run buildtool
+        uses: matlab-actions/run-build@v2
+        with:
+          tasks: test  # change to compile
+
+
   build:
+    
+    name: Deploy/Release (main)
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
 
     # Set up URLs for GitHub Pages report
     environment:
@@ -54,7 +79,7 @@ jobs:
       - name: Run buildtool
         uses: matlab-actions/run-build@v2
         with:
-          tasks: test
+          tasks: test  # change to compile
 
       # Configure GitHub Pages to accept your artifact uploads
       - name: Setup Pages
