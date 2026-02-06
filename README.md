@@ -4,7 +4,8 @@
 
 # MATLAB<sup>&reg;</sup>/SimBiology<sup>&reg;</sup> DevOps Workflow Example
 
-This workshop provides hands-on experience using some of MATLAB's powerful software testing and automation features.
+This workshop provides hands-on experience using some of MATLAB's powerful software testing and automation features.<br>
+It is based on the workshop [Generating Tests for Your MATLAB<sup>&reg;</sup> Code](https://github.com/mathworks/Generating-Tests-for-Your-MATLAB-Code-Workshop).
 <br><br>
 
 ## About the workshop
