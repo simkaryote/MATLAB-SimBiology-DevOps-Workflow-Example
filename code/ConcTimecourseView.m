@@ -34,7 +34,6 @@ classdef ConcTimecourseView < handle
             end
             
             ax = uiaxes(parent);
-            graystyle(ax);
             xlabel(ax, "Time (hours)", 'FontName',obj.FontName);
             ylabel(ax, "Concentrations (nanomole/liter)",'FontName',obj.FontName);
 
@@ -48,7 +47,8 @@ classdef ConcTimecourseView < handle
 
             ax.XLimitMethod = "padded";
             ax.YLimitMethod = "padded";
-        
+            grid(ax,"on");
+
             % instantiate listener
             dataListener = event.listener( model, 'DataChanged', ...
                 @obj.update );

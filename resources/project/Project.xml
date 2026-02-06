@@ -95,13 +95,6 @@
                     </Category>
                 </Info>
             </File>
-            <File Location="graystyle.m">
-                <Info>
-                    <Category UUID="FileClassCategory">
-                        <Label UUID="design"/>
-                    </Category>
-                </Info>
-            </File>
             <File Location="images">
                 <Info>
                     <Category UUID="FileClassCategory">
@@ -539,6 +532,9 @@
         </EntryPoint>
         <EntryPoint Location="50089eeb-ad39-46d1-b182-8f9cbe460083">
             <Info File="projectUtilities/runApp.m" GroupUUID="default" Icon="" Name="Run App" Type="Basic" Visible="1"/>
+        </EntryPoint>
+        <EntryPoint Location="d1da02ed-37b2-4cfb-888f-6b32e88fac43">
+            <Info File=".github/workflows/ci.yml" GroupUUID="default" Icon="" Name="Open ci.yml" Type="Basic" Visible="1"/>
         </EntryPoint>
     </EntryPoints>
 </project>

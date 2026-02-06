@@ -4,7 +4,7 @@ classdef NCAView < handle
         Model
         NCApanel
         GridLayout
-
+        BackgroundColor = [1,1,1]
     end
 
     properties ( Hidden )
@@ -17,6 +17,11 @@ classdef NCAView < handle
         FontName                (1,1) string = "Helvetica"
         NCAoptions              % options for NCA calculations
         ConcentrationColumnName (1,1) string = "Complex"
+        
+    end
+
+    properties ( Dependent )
+        Color
     end
     
     properties( Access = private )
@@ -34,7 +39,7 @@ classdef NCAView < handle
             ncapanel = uipanel(parent);
             ncapanel.Title = "NCA parameters for bound target ('" + ...
                 obj.ConcentrationColumnName + "')";
-            ncapanel.BackgroundColor = [1 1 1];
+            ncapanel.BackgroundColor = obj.BackgroundColor;
             ncapanel.FontName = obj.FontName;
             ncapanel.BorderType = 'none';
 
@@ -43,7 +48,7 @@ classdef NCAView < handle
             gl.ColumnWidth = {'1x'};
             gl.RowHeight = {'1x'};
             gl.Padding = [0 0 0 0];
-            gl.BackgroundColor = [1 1 1];
+            gl.BackgroundColor = obj.BackgroundColor;
 
             % Create NCAtable
             ncat = uitable(gl);
@@ -70,6 +75,15 @@ classdef NCAView < handle
             
         end % constructor
         
+        function set.Color(obj,value)
+            obj.BackgroundColor = value;
+            obj.NCApanel.BackgroundColor = value;
+            obj.GridLayout.BackgroundColor = value;
+        end
+
+        function value = get.Color(obj)
+            value = obj.BackgroundColor;
+        end
    
     end % public methods
     
