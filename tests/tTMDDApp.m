@@ -32,7 +32,7 @@ classdef tTMDDApp < matlab.uitest.TestCase
         function testChangeDosingAmountManualUpdate(testCase)
 
             % Deactivate automatic plot update
-            testCase.App.AutomaticupdateCheckBox.Value = false;
+            testCase.App.AutomaticUpdateSwitch.Value = "Off";
 
             oldlhRO_XData       = testCase.App.ROViewObj.lhRO.XData;
             oldlhRO_YData       = testCase.App.ROViewObj.lhRO.YData;
